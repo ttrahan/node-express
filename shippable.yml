@@ -19,7 +19,6 @@ build:
   ci:
     - node --version
     - pip install awsebcli
-    - 
   post_ci:
     - cd /root/src/github.com/ttrahan/node-express-eb
     - eb deploy
