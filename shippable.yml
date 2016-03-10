@@ -12,4 +12,7 @@ build:
     pull: false
 
   ci:
-    node --version
+    - node --version
+  post_ci:
+    - cd /root/src/github.com/ttrahan/node-express-eb
+    - eb deploy
