@@ -6,6 +6,9 @@ node_js:
   - "5.3"
 
 build:
+  pre_ci:
+    - sudo docker ps -a
+
   pre_ci_boot:
     image_name: drydock/u14nod
     image_tag: latest
