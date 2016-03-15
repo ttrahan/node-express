@@ -5,11 +5,6 @@ language: node_js
 node_js:
   - "5.3"
 
-env:
-  global:
-    - secure: aWBCyUuUTLvrcOdmPKetVvwlBwTyyQ95bvU29EH6+LWvIFbM4v9hmqOhtuwPf2PTZM2FnKFmcI6zbpIYTogKG2vgcgrX8UACgGDOKxhxnXMJNY1NMXxIUJXmbsjrLWZCxqJwq+sLUzcRuaiAolQ3dFd+2vUCXYSzQqGPHpod9lHDlekAiThQll2UzreqtG5SCsy4SusMlg6itceOToZq6MhcvO/lKeyyTPP4KD+MqIEJbXMEclpEwBohIYM2uOV2U22R4y8Db8+lDqB8e5x/GlYEQwMlJ9M9ZsXfFNsDe79AXL7jcA13tIsQSDPLGO48hnJyiiTtoQG8SvvReFnkCA==
-    - secure: KYL2d0b6XxvkcAl+Jcp/63oYueU/vMAUubAfbQgbg8g8BqMkrvAw6zz8ftzoTw6lkYZrRECbJBVsXaTwjscRvzup5a4KJKqnEXrpSYqfnQHGqzMRdyvos7ekW+t3BuF+zx+uPCRI9hyWUS2+GkrcLKMsFu6wSZtHbgQakcQ09syw64oHH4hClSRGiz+2134lP5S+PjTSVNhpuDBZ4YPwiHhz2pUJwFA2MlDjB1JWQhZm6jmpml5vJCYP+Re0K9XAcJHzXaMBoyP5cT3HCfRKm4WBrcjTnwTdU2PEQESJj7FJ9xGvNMwc43K7L/dL4JZGiRk/khotd+K/Kg8AiGX6jw==
-
 build:
   pre_ci_boot:
     image_name: drydock/u14nod
@@ -18,7 +13,13 @@ build:
 
   ci:
     - node --version
-    - pip install awsebcli
-  post_ci:
-    - cd /root/src/github.com/ttrahan/node-express-eb
-    - eb deploy
+
+integrations:
+  deploy:
+    - integrationName: "AWS - ttrahan"
+      type: aws
+      target: ebs_paas
+      platform: "Node.js"
+      application_name: expressapp
+      env_name: expressapp-dev
+      region: us-east-1
