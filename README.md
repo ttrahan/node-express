@@ -16,10 +16,11 @@ environment, and region you used in the previous step.**
 
 1.  **Sign up or log in to your Shippable account (www.shippable.com)**
 
-1.  **[Enable the project for CI] in Shippable (http://docs.shippable.com/ci_subscriptions/)**
+1.  **[Enable the project for CI] in Shippable**
+  * [Instructions to enable your project](http://docs.shippable.com/ci_subscriptions/)
 
 1.  **Replace the secure variables in `shippable.yml` with your own AWS credentials**
-  * Read the [instructions to encrypt your secure variables](http://docs.shippable.com/ci_configure/#secure-variables)
+  * [Instructions to encrypt your secure variables](http://docs.shippable.com/ci_configure/#secure-variables)
   * Encrypt the variables as follows:
     * AWS_ACCESS_KEY_ID=_enter your AWS access key id here_
     * AWS_SECRET_ACCESS_KEY=_enter your AWS secret access key here_
