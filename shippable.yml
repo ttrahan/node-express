@@ -8,6 +8,7 @@ node_js:
 build:
   pre_ci:
     - sudo docker ps -a
+    - sudo docker images -a
 
   pre_ci_boot:
     image_name: drydock/u14nod
