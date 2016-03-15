@@ -19,11 +19,11 @@ environment, and region you used in the previous step.**
 1.  **Enable the project for CI in Shippable**
   * [Instructions to enable your project](http://docs.shippable.com/ci_subscriptions/)
 
-1.  **Replace the secure variables in `shippable.yml` with your own AWS credentials**
-  * [Instructions to encrypt your secure variables](http://docs.shippable.com/ci_configure/#secure-variables)
-  * Encrypt the variables as follows:
-    * AWS_ACCESS_KEY_ID=_enter your AWS access key id here_
-    * AWS_SECRET_ACCESS_KEY=_enter your AWS secret access key here_
+1.  **Add a Deploy Integration to your project for AWS**
+  * This will allow AWS credentials stored in an Account Integration to be used for
+  this deployment.
+  * If you do not already have an Account Integration, create one with [these instructions](http://docs.shippable.com/int_overview/#adding-an-account-integration)
+  * Assign the Account Integration to your project in the Deploy Integrations section of the [Project Settings page](http://docs.shippable.com/ci_projects/#enabling-integrations)
 
 1.  **Make a change to the application code, commit and push it.**
   * For instance, change the title message on `routes/index.js`, commit it and
