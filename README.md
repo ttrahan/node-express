@@ -11,9 +11,6 @@ Instructions for using this sample:
   * This will create a new Elastic Beanstalk application and environment for a
   sample Node.js application.
 
-1.  **Update the file `.elasticbeanstalk/config.yml` with the application,
-environment, and region you used in the previous step.**
-
 1.  **Sign up or log in to your Shippable account (www.shippable.com)**
 
 1.  **Enable the project for CI in Shippable**
@@ -25,11 +22,24 @@ environment, and region you used in the previous step.**
   * If you do not already have an Account Integration, create one with [these instructions](http://docs.shippable.com/int_overview/#adding-an-account-integration)
   * Assign the Account Integration to your project in the Deploy Integrations section of the [Project Settings page](http://docs.shippable.com/ci_projects/#enabling-integrations)
 
-1.  **Make a change to the application code, commit and push it.**
-  * For instance, change the title message on `routes/index.js`, commit it and
-  push your change to your GitHub fork.
+1.  **Update the Deploy integration collection**
+  * In `shippable.yml`, update the name of the Account Integration set up in the
+  previous step, and the application name, environment name, and region you used
+  in Elastic Beanstalk.**
 
+```
+integrations:
+  deploy:
+    - integrationName: "AWS - ttrahan"
+      type: aws
+      target: eb_paas
+      platform: "Node.js"
+      application_name: expressapp
+      env_name: expressapp-dev
+      region: us-east-1
+```
 
-The push to GitHub will trigger a CI run on Shippable and execute the Instructions
-in `shippable.yml`.  Upon a successful run, the new version of the app will be
-deployed to Elastic Beanstalk.
+1.  **Commit and push your updated `shippable.yml`**
+  * The push to GitHub or Bitbucket will trigger a CI run on Shippable and execute
+  the Instructions in `shippable.yml`.  Upon a successful run, the new version of
+  the app will be deployed to Elastic Beanstalk.
