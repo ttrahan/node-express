@@ -22,22 +22,21 @@ Instructions for using this sample:
   * If you do not already have an Account Integration, create one with [these instructions](http://docs.shippable.com/int_overview/#adding-an-account-integration)
   * Assign the Account Integration to your project in the Deploy Integrations section of the [Project Settings page](http://docs.shippable.com/ci_projects/#enabling-integrations)
 
-1.  **Update the Deploy integration collection**
+1.  **Update the deploy integration collection**
   * In `shippable.yml`, update the name of the Account Integration set up in the
   previous step, and the application name, environment name, and region you used
   in Elastic Beanstalk.**
-
-```
-integrations:
-  deploy:
-    - integrationName: "AWS - ttrahan"
-      type: aws
-      target: eb_paas
-      platform: "Node.js"
-      application_name: expressapp
-      env_name: expressapp-dev
-      region: us-east-1
-```
+  ```
+  integrations:
+    deploy:
+      - integrationName: "AWS - ttrahan"
+        type: aws
+        target: eb_paas
+        platform: "Node.js"
+        application_name: expressapp
+        env_name: expressapp-dev
+        region: us-east-1
+  ```
 
 1.  **Commit and push your updated `shippable.yml`**
   * The push to GitHub or Bitbucket will trigger a CI run on Shippable and execute
