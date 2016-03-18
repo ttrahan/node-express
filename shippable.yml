@@ -13,7 +13,7 @@ integrations:
   deploy:
     - integrationName: "AWS - ttrahan"
       type: aws
-      target: ebs_paas
+      target: eb_paas
       platform: "Node.js"
       application_name: expressapp
       env_name: expressapp-dev
